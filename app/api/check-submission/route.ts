@@ -4,64 +4,37 @@ import { authOptions } from "@/lib/auth";
 import { getFirestore } from "firebase-admin/firestore";
 import { initializeApp, getApps, cert, App } from "firebase-admin/app";
 
-let adminApp: App;
 let db: ReturnType<typeof getFirestore>;
 
+// --- START: REPLACE THIS ENTIRE BLOCK ---
 try {
-  // Initialize Firebase Admin using environment variables
-  if (!getApps().length) {
-    adminApp = initializeApp({
-      credential: cert({
-        projectId: process.env.FIREBASE_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        privateKey: process
-          .env
-          .FIREBASE_PRIVATE_KEY
-          ?.replace(/\\n/g, "\n"),
-      }),
-    });
-  } else {
-    adminApp = getApps()[0];
+  const serviceAccountString = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+  if (!serviceAccountString) {
+    throw new Error("The FIREBASE_SERVICE_ACCOUNT_JSON environment variable is not set.");
   }
+  
+  // Parse the service account key from the environment variable
+  const serviceAccount = JSON.parse(serviceAccountString);
 
-  db = getFirestore(adminApp);
-  console.log(" Firebase Admin SDK initialized successfully.");
+  if (!getApps().length) {
+    initializeApp({
+      credential: cert(serviceAccount), // Use the parsed service account object
+    });
+  }
+  
+  db = getFirestore();
+  console.log("✅ Firebase Admin SDK initialized successfully in check-submission.");
 } catch (error) {
   if (error instanceof Error) {
-    console.error(" Firebase Admin SDK Initialization Error:", error.message);
+    console.error("❌ Firebase Admin SDK Initialization Error:", error.message);
   } else {
-    console.error(
-      " Unknown error occurred during Firebase Admin SDK initialization:",
-      error
-    );
+    console.error("❌ Unknown error initializing Firebase Admin SDK:", error);
   }
 }
+// --- END: REPLACE THIS ENTIRE BLOCK ---
+
 
 export async function GET() {
-  if (!db) {
-    return NextResponse.json(
-      { error: "Firebase Admin SDK not initialized." },
-      { status: 500 }
-    );
-  }
-
-  const session = await getServerSession(authOptions);
-
-  if (!session || !session.user?.email) {
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
-  }
-
-  try {
-    const userEmail = session.user.email;
-    const submissionRef = db.collection("submissions").doc(userEmail);
-    const docSnap = await submissionRef.get();
-
-    return NextResponse.json({ hasSubmitted: docSnap.exists });
-  } catch (error) {
-    console.error("Error checking submission status:", error);
-    return NextResponse.json(
-      { error: "Failed to check submission status." },
-      { status: 500 }
-    );
-  }
+  // ... your existing GET function code is correct and remains the same
+  // ...
 }

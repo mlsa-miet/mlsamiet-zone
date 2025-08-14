@@ -1,26 +1,25 @@
-import { NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
 import { getFirestore } from "firebase-admin/firestore";
 import { initializeApp, getApps, cert, App } from "firebase-admin/app";
 
-let adminApp: App;
 let db: ReturnType<typeof getFirestore>;
 
+// --- START: REPLACE THIS ENTIRE BLOCK ---
 try {
-  if (!getApps().length) {
-    adminApp = initializeApp({
-      credential: cert({
-        projectId: process.env.FIREBASE_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-      }),
-    });
-  } else {
-    adminApp = getApps()[0];
+  const serviceAccountString = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
+  if (!serviceAccountString) {
+    throw new Error("The FIREBASE_SERVICE_ACCOUNT_JSON environment variable is not set.");
   }
+  
+  // Parse the service account key from the environment variable
+  const serviceAccount = JSON.parse(serviceAccountString);
 
-  db = getFirestore(adminApp);
+  if (!getApps().length) {
+    initializeApp({
+      credential: cert(serviceAccount), // Use the parsed service account object
+    });
+  }
+  
+  db = getFirestore();
   console.log("✅ Firebase Admin SDK initialized successfully.");
 } catch (error) {
   if (error instanceof Error) {
@@ -30,36 +29,7 @@ try {
   }
 }
 
+
+
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
-
-  if (!session || !session.user?.email) {
-    return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
-  }
-
-  try {
-    const formData = await request.json();
-    const userEmail = session.user.email;
-
-    const submissionRef = db.collection("submissions").doc(userEmail);
-
-    const dataToSave = {
-      ...formData,
-      submittedAt: new Date(),
-      userEmail: userEmail,
-    };
-
-    await submissionRef.set(dataToSave);
-
-    return NextResponse.json(
-      { message: "Application submitted successfully!" },
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error saving to Firestore:", error);
-    return NextResponse.json(
-      { error: "Failed to submit application." },
-      { status: 500 }
-    );
-  }
 }
