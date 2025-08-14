@@ -1,5 +1,5 @@
 "use client";
-
+import Image from 'next/image'; 
 import type { NextPage } from 'next';
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
@@ -8,9 +8,14 @@ import SignInButton from './components/SignInButton';
 // ..... SHARED COMPONENTS .....
 
 const MLSALogo = () => (
-    <img src="/mlsa-logo.png" alt="MLSA MIET Logo" className="w-24 h-24" />
+    <Image 
+        src="/mlsa-logo.png" 
+        alt="MLSA MIET Logo" 
+        width={96}  
+        height={96} 
+        className="w-24 h-24" 
+    />
 );
-
 const PlexusBackground = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -179,12 +184,13 @@ const MissionIcon = () => (
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
     </svg>
 );
+const words = ["Student","Creators", "Coders", "Shapers"];
 const TypingEffect = () => {
     const [text, setText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
     const [loopNum, setLoopNum] = useState(0);
     const [typingSpeed, setTypingSpeed] = useState(150);
-    const words = ["Student","Creators", "Coders", "Shapers"];
+    
     useEffect(() => {
         const handleTyping = () => {
             const i = loopNum % words.length;
@@ -200,7 +206,7 @@ const TypingEffect = () => {
         };
         const timer = setTimeout(handleTyping, typingSpeed);
         return () => clearTimeout(timer);
-    }, [text, isDeleting, loopNum, typingSpeed, words]);
+    }, [text, isDeleting, loopNum, typingSpeed]);
     return <span className="text-blue-400 border-r-2 border-blue-400 animate-pulse">{text}</span>;
 };
 
@@ -316,7 +322,7 @@ const LandingPage: NextPage = () => {
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-3">Mission</h3>
                             <p className="text-slate-400 flex-grow">
-                                The mission of MLSA is "Tech for All." We empower individuals to embrace the digital world with confidence through engaging events, innovative projects, and meaningful connections.
+                                The mission of MLSA is &quot;Tech for All.&quot; We empower individuals to embrace the digital world with confidence through engaging events, innovative projects, and meaningful connections.
                             </p>
                         </div>
                     </div>

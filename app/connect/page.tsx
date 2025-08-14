@@ -1,12 +1,18 @@
 "use client";
-
+import Image from 'next/image'; 
 import type { NextPage } from 'next';
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import SignInButton from '../components/SignInButton';
 //.........SHARED COMPONENTS.......
 const MLSALogo = () => (
-    <img src="/mlsa-logo.png" alt="MLSA MIET Logo" className="w-16 h-16" />
+    <Image 
+        src="/mlsa-logo.png" 
+        alt="MLSA MIET Logo" 
+        width={96}  
+        height={96} 
+        className="w-24 h-24" 
+    />
 );
 const PlexusBackground = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -110,14 +116,14 @@ const NewFooter = () => {
                     <p className="font-semibold mb-3">FOLLOW US ON OUR SOCIALS:</p>
                     <div className="flex items-center space-x-4">
                         {socialIcons.map((social) => (
-                            <a key={social.name} href={social.href} className="hover:text-blue-400 transition-colors">{social.icon}</a>
+                            <Link key={social.name} href={social.href} className="hover:text-blue-400 transition-colors">{social.icon}</Link>
                         ))}
                     </div>
                 </div>
                 <div>
                     <h4 className="font-bold text-lg text-white mb-4">CONTACT US:</h4>
-                    <a href="mailto:pari.agarwal.cseds.2022@miet.ac.in" className="block hover:text-blue-400 transition-colors">pari.agarwal.cseds.2022@miet.ac.in</a>
-                    <a href="mailto:mlsa.community@miet.ac.in" className="block hover:text-blue-400 transition-colors">mlsa.community@miet.ac.in</a>
+                    <Link href="mailto:pari.agarwal.cseds.2022@miet.ac.in" className="block hover:text-blue-400 transition-colors">pari.agarwal.cseds.2022@miet.ac.in</Link>
+                    <Link href="mailto:mlsa.community@miet.ac.in" className="block hover:text-blue-400 transition-colors">mlsa.community@miet.ac.in</Link>
                 </div>
                 <div>
                     <h4 className="font-bold text-lg text-white mb-4">VISIT US AT:</h4>
@@ -197,17 +203,17 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children, activePage }) => {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <header className="py-2 px-4 sm:px-6 lg:px-8 sticky top-0 z-50 bg-slate-900/50 backdrop-blur-md border-b border-slate-800 h-24 flex items-center">
                     <nav className="flex justify-between items-center max-w-7xl mx-auto w-full">
-                        <a href="/" className="flex items-center gap-2 cursor-pointer">
+                        <Link href="/" className="flex items-center gap-2 cursor-pointer">
                             <MLSALogo />
                             <span className="font-bold text-xl tracking-wide">MLSA MIET</span>
-                        </a>
+                        </Link>
                         
                         {/* Desktop Menu */}
                         <div className="hidden md:flex items-center space-x-8 font-medium">
                             {navLinks.map(link => (
-                                <a key={link.name} href={link.href} className={activePage === link.page ? "text-blue-400" : "hover:text-blue-400 transition-colors duration-300"}>
+                                <Link key={link.name} href={link.href} className={activePage === link.page ? "text-blue-400" : "hover:text-blue-400 transition-colors duration-300"}>
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                         </div>
                         <div className="hidden md:block">
@@ -228,9 +234,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children, activePage }) => {
                     <div className="md:hidden absolute top-24 left-0 w-full bg-slate-900/80 backdrop-blur-lg z-40">
                         <div className="flex flex-col items-center space-y-4 py-8">
                             {navLinks.map(link => (
-                                <a key={link.name} href={link.href} className={`text-lg font-medium ${activePage === link.page ? "text-blue-400" : "hover:text-blue-400"}`}>
+                                <Link key={link.name} href={link.href} className={`text-lg font-medium ${activePage === link.page ? "text-blue-400" : "hover:text-blue-400"}`}>
                                     {link.name}
-                                </a>
+                                </Link>
                             ))}
                             <SignInButton />
                         </div>
@@ -270,14 +276,22 @@ const ConnectPage: NextPage = () => {
             <main className="flex-grow flex items-center justify-center p-4">
                 <div className="w-full max-w-md mx-auto">
                     <div className="text-center mb-8">
-                        <img src="/mlsa-logo.png" alt="MLSA MIET Logo" className="w-28 h-28 mx-auto mb-4" />
+                        
+                <Image
+                  src="/mlsa-logo.png"
+                  alt="MLSA MIET Logo"
+                  width={112}  // matches w-28 (28 × 4px = 112px)
+                  height={112} // matches h-28
+                  className="mx-auto mb-4"
+                  priority
+                />
                         <h1 className="text-3xl font-bold text-white">MLSA MIET</h1>
                         <p className="text-slate-300 mt-1">A community of student leaders building a better tomorrow.</p>
                     </div>
 
                     <div className="space-y-4">
                         {socialLinks.map(link => (
-                            <a 
+                            <Link 
                                 key={link.name} 
                                 href={link.href} 
                                 target="_blank" 
@@ -286,7 +300,7 @@ const ConnectPage: NextPage = () => {
                             >
                                 {link.icon}
                                 <span className="font-semibold flex-grow text-left text-slate-100">{link.name}</span>
-                            </a>
+                            </Link>
                         ))}
                     </div>
                 </div>

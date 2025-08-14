@@ -88,8 +88,12 @@ export default function AdminDashboard() {
                 }
                 const data = await res.json();
                 setSubmissions(data);
-            } catch (err: any) {
-                setError(err.message);
+            }  catch (err) {
+                 if (err instanceof Error) {
+                 setError(err.message);
+                } else {
+                 setError('An unexpected error occurred.');
+                }
             } finally {
                 setIsLoading(false);
             }

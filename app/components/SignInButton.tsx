@@ -1,5 +1,5 @@
 "use client";
-
+import Image from 'next/image';
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
@@ -38,9 +38,16 @@ export default function SignInButton({ isHero = false }: { isHero?: boolean }) {
     
     return (
       <div className="relative" ref={dropdownRef}>
-        <button onClick={() => setDropdownOpen(!dropdownOpen)} className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-600 hover:border-blue-500 transition-colors">
-          <img src={session.user?.image || `https://placehold.co/40/0f172a/ffffff?text=${session.user?.name?.[0] || 'U'}`} alt="User profile picture" />
-        </button>
+        <button 
+    onClick={() => setDropdownOpen(!dropdownOpen)} 
+    className="w-10 h-10 rounded-full overflow-hidden border-2 border-slate-600 hover:border-blue-500 transition-colors">
+    <Image 
+        src={session.user?.image || `https://placehold.co/40/0f172a/ffffff?text=${session.user?.name?.[0] || 'U'}`} 
+        alt="User profile picture"
+        width={40}  
+        height={40} 
+    />
+</button>
         {dropdownOpen && (
           <div className="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-700 rounded-lg shadow-lg py-1 z-50">
             {isAdmin() ? (

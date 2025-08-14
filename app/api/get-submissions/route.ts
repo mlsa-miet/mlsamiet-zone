@@ -6,6 +6,23 @@ import { initializeApp, getApps, cert, App } from 'firebase-admin/app';
 import path from 'path';
 import fs from 'fs';
 
+type Submission = {
+    id: string;
+    fullName: string;
+    email: string;
+    phoneNumber: string;
+    year: string;
+    branch: string;
+    firstChoice: string;
+    secondChoice: string;
+    motivation: string;
+    contribution: string;
+    additionalInfo?: string;
+    submittedAt?: {
+        seconds: number;
+        nanoseconds: number;
+    } | null;
+};
 // Securely read the service account key on the server
 const serviceAccountPath = path.resolve(process.cwd(), 'firebase-service-account.json');
 const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, 'utf8'));
@@ -22,7 +39,7 @@ if (!getApps().length) {
 
 const db = getFirestore(adminApp);
 
-export async function GET(request: Request) {
+export async function GET() {
     const session = await getServerSession(authOptions);
     
     const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
@@ -40,7 +57,7 @@ export async function GET(request: Request) {
             return NextResponse.json([]);
         }
 
-        const submissions: any[] = [];
+        const submissions: Submission[] = [];
         snapshot.forEach(doc => {
             const data = doc.data();
             const submissionData = {
@@ -49,7 +66,7 @@ export async function GET(request: Request) {
                 submittedAt: data.submittedAt && data.submittedAt.seconds 
                     ? { seconds: data.submittedAt.seconds, nanoseconds: data.submittedAt.nanoseconds } 
                     : null
-            };
+            } as Submission; 
             submissions.push(submissionData);
         });
 

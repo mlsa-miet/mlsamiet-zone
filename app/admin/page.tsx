@@ -1,5 +1,5 @@
 "use client";
-
+import Image from 'next/image';
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -8,9 +8,14 @@ import AdminDashboard from '../components/AdminDashboard'; // We will use the co
 // ...... SHARED COMPONENTS ............
 
 const MLSALogo = () => (
-    <img src="/mlsa-logo.png" alt="MLSA MIET Logo" className="w-16 h-16" />
+     <Image 
+        src="/mlsa-logo.png" 
+        alt="MLSA MIET Logo" 
+        width={96}  // Use numbers for pixels, so 24 * 4 = 96
+        height={96} // Use numbers for pixels, so 24 * 4 = 96
+        className="w-24 h-24" // Keep your Tailwind classes for styling
+    />
 );
-
 const CursorSpotlight = () => {
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => {

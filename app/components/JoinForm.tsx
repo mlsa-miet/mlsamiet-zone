@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSession, signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+
 
 export default function JoinForm() {
     const { data: session, status } = useSession();
@@ -34,11 +35,11 @@ export default function JoinForm() {
         "Workflow Management"
     ];
     
-    const isAdmin = () => {
-        if (!session || !session.user?.email) return false;
-        const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
-        return adminEmails.includes(session.user.email);
-    };
+    const isAdmin = useCallback(() => {
+    if (!session || !session.user?.email) return false;
+    const adminEmails = process.env.NEXT_PUBLIC_ADMIN_EMAILS?.split(',') || [];
+    return adminEmails.includes(session.user.email);
+}, [session]);
 
     useEffect(() => {
         if (status === 'authenticated' && session?.user) {
@@ -66,7 +67,7 @@ export default function JoinForm() {
             };
             checkStatus();
         }
-    }, [session, status, router]);
+    }, [session, status, router, isAdmin]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -179,7 +180,7 @@ export default function JoinForm() {
                         </select>
                     </div>
                 </div>
-                <h2 className="text-sm text-slate-400 text-center italic pt-2">Please note that the order of domains listed here doesn't represent any hierarchy or importance. Each domain is equally valuable to us.</h2>
+               <h2 className="text-sm text-slate-400 text-center italic pt-2">Please note that the order of domains listed here doesn&apos;t represent any hierarchy or importance. Each domain is equally valuable to us.</h2>
                 <div>
                     <label htmlFor="motivation" className="block text-sm font-medium text-slate-300 mb-2">8. What motivated you to volunteer with MLSA MIET and what do you hope to gain from the experience?</label>
                     <textarea name="motivation" id="motivation" rows={4} value={formData.motivation} onChange={handleChange} required className="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>

@@ -3,11 +3,18 @@ import SignInButton from '../components/SignInButton';
 import type { NextPage } from 'next';
 import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image'; 
 
 //SHARED COMPONENTS ..............
 
 const MLSALogo = () => (
-    <img src="/mlsa-logo.png" alt="MLSA MIET Logo" className="w-24 h-24" />
+    <Image 
+        src="/mlsa-logo.png" 
+        alt="MLSA MIET Logo" 
+        width={96}  
+        height={96} 
+        className="w-24 h-24" 
+    />
 );
 
 const PlexusBackground = () => {
@@ -101,14 +108,14 @@ const NewFooter = () => {
                     <p className="font-semibold mb-3">FOLLOW US ON OUR SOCIALS:</p>
                     <div className="flex items-center space-x-4">
                         {socialIcons.map((social) => (
-                            <a key={social.name} href={social.href} className="hover:text-blue-400 transition-colors">{social.icon}</a>
+                            <Link key={social.name} href={social.href} className="hover:text-blue-400 transition-colors">{social.icon}</Link>
                         ))}
                     </div>
                 </div>
                 <div>
                     <h4 className="font-bold text-lg text-white mb-4">CONTACT US:</h4>
-                    <a href="mailto:pari.agarwal.cseds.2022@miet.ac.in" className="block hover:text-blue-400 transition-colors">pari.agarwal.cseds.2022@miet.ac.in</a>
-                    <a href="mailto:mlsa.community@miet.ac.in" className="block hover:text-blue-400 transition-colors">mlsa.community@miet.ac.in</a>
+                    <Link href="mailto:pari.agarwal.cseds.2022@miet.ac.in" className="block hover:text-blue-400 transition-colors">pari.agarwal.cseds.2022@miet.ac.in</Link>
+                    <Link href="mailto:mlsa.community@miet.ac.in" className="block hover:text-blue-400 transition-colors">mlsa.community@miet.ac.in</Link>
                 </div>
                 <div>
                     <h4 className="font-bold text-lg text-white mb-4">VISIT US AT:</h4>
@@ -164,14 +171,16 @@ const ImageSwitcher = () => {
         <div className="relative w-80 h-80 md:w-96 md:h-96 group">
             <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-50 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
             {images.map((src, index) => (
-                <img
-                    key={src}
-                    src={src}
-                    alt={`Community image ${index + 1}`}
-                    className={`absolute inset-0 w-full h-full object-cover rounded-full border-4 border-slate-800 transition-opacity duration-1000 ease-in-out ${
-                        index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-                    }`}
-                />
+               <Image
+                   key={src}
+                   src={src}
+                   alt={`Community image ${index + 1}`}
+                   fill // This is the key change for absolutely positioned images
+                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Helps optimize image loading
+                   className={`absolute inset-0 object-cover rounded-full border-4 border-slate-800 transition-opacity duration-1000 ease-in-out ${
+                   index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+    }`}
+/>
             ))}
         </div>
     );
@@ -234,15 +243,15 @@ const AboutPage: NextPage = () => {
       <div className="relative z-10 flex flex-col min-h-screen">
           <header className="py-2 px-4 sm:px-6 lg:px-8 sticky top-0 z-50 bg-slate-900/50 backdrop-blur-md border-b border-slate-800 h-24 flex items-center">
           <nav className="flex justify-between items-center max-w-7xl mx-auto w-full">
-            <a href="/" className="flex items-center space-x-3 cursor-pointer">
+            <Link href="/" className="flex items-center space-x-3 cursor-pointer">
               <MLSALogo />
               <span className="font-bold text-xl tracking-wide">MLSA MIET</span>
-            </a>
+            </Link>
             <div className="hidden md:flex items-center space-x-8 font-medium">
-              <a href="/" className="hover:text-blue-400 transition-colors duration-300">HOME</a>
-              <a href="/team" className="hover:text-blue-400 transition-colors duration-300">TEAM</a>
-              <a href="/about" className="hover:text-blue-400 transition-colors duration-300">ABOUT US</a>
-              <a href="/connect" className="hover:text-blue-400 transition-colors duration-300">CONNECT WITH US</a>
+              <Link href="/" className="hover:text-blue-400 transition-colors duration-300">HOME</Link>
+              <Link href="/team" className="hover:text-blue-400 transition-colors duration-300">TEAM</Link>
+              <Link href="/about" className="hover:text-blue-400 transition-colors duration-300">ABOUT US</Link>
+              <Link href="/connect" className="hover:text-blue-400 transition-colors duration-300">CONNECT WITH US</Link>
             </div>
             <SignInButton />
           </nav>

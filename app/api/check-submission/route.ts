@@ -31,12 +31,15 @@ try {
   db = getFirestore(adminApp);
   console.log("Firebase Admin SDK initialized successfully.");
 
-} catch (error: any) {
-  console.error("Firebase Admin SDK Initialization Error:", error.message);
+}  catch (error) { 
+  if (error instanceof Error) {
+    console.error("Firebase Admin SDK Initialization Error:", error.message);
+  } else {
+    console.error("An unknown error occurred during Firebase Admin SDK initialization:", error);
+  }
 }
 
-
-export async function GET(request: Request) {
+export async function GET() {
     if (!db) {
         return NextResponse.json({ error: 'Firebase Admin SDK not initialized.' }, { status: 500 });
     }

@@ -3,13 +3,18 @@ import SignInButton from '../components/SignInButton';
 import type { NextPage } from 'next';
 import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
-
+import Image from 'next/image'; 
 //...... SHARED COMPONENTS ......
 
 const MLSALogo = () => (
-    <img src="/mlsa-logo.png" alt="MLSA MIET Logo" className="w-24 h-24" />
+    <Image 
+        src="/mlsa-logo.png" 
+        alt="MLSA MIET Logo" 
+        width={96}  
+        height={96} 
+        className="w-24 h-24" 
+    />
 );
-
 const PlexusBackground = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     useEffect(() => {
@@ -159,7 +164,13 @@ const TeamCard = ({ name, role, imageUrl }: { name: string, role: string, imageU
             
             {/* Top card - visible full time */}
             <div className="relative w-full h-full bg-white p-4 transition-transform duration-500 ease-in-out group-hover:-translate-y-4 shadow-xl overflow-hidden">
-                <img src={imageUrl} alt={name} className="w-full h-full object-cover" />
+               <Image 
+                    src={imageUrl} 
+                    alt={name}
+                    fill // Use fill to cover the parent div
+                    sizes="(max-width: 768px) 100vw, 50vw" // Helps with optimization
+                    className="object-cover" // Keep object-cover
+                />
                 <div className="absolute bottom-0 left-0 w-full p-4 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
                     <h3 className="text-xl font-bold text-slate-900">{name}</h3>
                     <p className="text-blue-600 font-semibold">{role}</p>
@@ -254,7 +265,14 @@ const TeamPage: NextPage = () => {
         <main className="flex-grow">
             <div className="relative h-[60vh] flex items-center justify-center text-center px-4 overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img src="/team/team3.jpg" alt="Team Background" className="w-full h-full object-cover opacity-80" />
+                <Image 
+                src="/team/team3.jpg" 
+                alt="Team Background"
+                fill
+                sizes="100vw"
+                className="object-cover opacity-80"
+                priority // Add priority to load this important image faster
+            />    
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-500/10 to-transparent"></div>
                 </div>
                 <div className="relative z-10">
