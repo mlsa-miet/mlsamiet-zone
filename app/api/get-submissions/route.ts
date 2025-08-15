@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { getFirestore } from "firebase-admin/firestore";
 import { initializeApp, getApps, cert } from "firebase-admin/app";
 
-// Your Submission type definition
+// Submission type definition
 type Submission = {
   id: string;
   fullName: string;

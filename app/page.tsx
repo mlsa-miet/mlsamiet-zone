@@ -267,9 +267,10 @@ const LandingPage: NextPage = () => {
         )}
 
         <main id="home" className="flex-grow flex flex-col justify-center items-center text-center px-4 min-h-screen">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white">
-            Microsoft Learn <TypingEffect />
-          </h1>
+         <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white">
+            <span>Microsoft Learn</span>
+            <span className="block"><TypingEffect /> Ambassador</span>
+         </h1>
           <h2 className="mt-2 text-3xl sm:text-4xl md:text-5xl font-semibold text-slate-300">
             MIET Chapter
           </h2>
