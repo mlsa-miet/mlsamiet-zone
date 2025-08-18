@@ -110,7 +110,7 @@ const RegistrationCountdown = () => {
     if (!isCounting && !hasEnded) {
         return (
             <div className="text-center bg-slate-800/60 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 max-w-4xl mx-auto">
-                 <h3 className="text-3xl font-bold text-white mb-2">Registrations Are Coming!</h3>
+                 <h3 className="text-3xl font-bold text-white mb-2">Volunteer Registrations Are Coming!</h3>
                  <p className="text-slate-300 text-lg">Get ready to join us. Registrations open on August 28th, 2025.</p>
             </div>
         );
@@ -120,7 +120,7 @@ const RegistrationCountdown = () => {
     if (hasEnded) {
         return (
             <div className="text-center bg-slate-800/60 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 max-w-4xl mx-auto">
-                <h3 className="text-3xl font-bold text-white mb-2">Registrations Have Closed</h3>
+                <h3 className="text-3xl font-bold text-white mb-2">Volunteer Registrations Have Closed</h3>
                 <p className="text-slate-300 text-lg">Thank you for your interest. Stay tuned for future events!</p>
             </div>
         );

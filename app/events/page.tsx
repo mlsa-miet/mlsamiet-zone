@@ -8,7 +8,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CursorSpotlight from '../components/CursorSpotlight';
 import PlexusBackground from '../components/PlexusBackground';
-import SignInButton from '../components/SignInButton'; // 👈 1. IMPORT THE SIGN-IN BUTTON
+import SignInButton from '../components/SignInButton';
 
 // .......... TYPE DEFINITIONS ..........
 type Event = {
@@ -19,6 +19,7 @@ type Event = {
   location: string;
   description: string;
   link: string;
+  registrationType?: 'signin' | 'link'; 
 };
 
 // .......... EVENT DATA ..........
@@ -30,42 +31,95 @@ const upcoming: Event[] = [
     time: "5 days",
     location: "Online",
     description: "Register now to begin your journey and join the MLSA MIET team as a volunteer.",
-    link: "/join", // This link is no longer used by the button but kept for data consistency
+    link: "/join",
+    registrationType: 'signin', 
+  },
+  {
+    id: "Avsar",
+    title: "Avsar 2.0",
+    date: "Aug 28, 2025",
+    time: "1 day",
+    location: "Auditorium 4",
+    description: "Join us with Mr. Rohit Yadav as we dive into 'How to get into Microsoft' and unlock pathways to your dream career.",
+    link: "https://www.linkedin.com/company/mlsa-miet/", 
+    registrationType: 'link', 
   }
 ];
 
 const past: Event[] = [
-    {
-        id: "tech-challenge",
-        title: "60 sec Tech Video Challenge",
-        date: "Aug 3, 2025",
-        time: "24 hrs",
-        location: "Online",
-        description: "Showcase your skills by explaining any Microsoft technology in under 60 seconds.",
-        link: "https://www.linkedin.com/posts/mlsa-miet_msftstudentambassadors-microsoft-mlsa-activity-7358129436451352576-rZRp?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEPnbUgBL7nBYpzb91o3DYvQ_Hqd0favIjE&utm_campaign=copy_link",
-    },
-    {
-        id: "dsa",
-        title: "DSA Level Up Session",
-        date: "June 21, 2025",
-        time: "07:00 PM - 9:00 PM",
-        location: "Online",
-        description: "Learn how to start your DSA journey in a way that feels approachable and achievable.",
-        link: "#",
-    },
-    {
-        id: "devgathering",
-        title: "Dev Gathering 2k25",
-        date: "May 16, 2025",
-        time: "2 days",
-        location: "MIET Schroff Block",
-        description: "An overnight hackathon with 100+ participants and 30+ projects.",
-        link: "https://www.devgathering2k25.xyz/",
-    }
+     {
+
+        id: "tech-challenge",
+
+        title: "60 sec Tech Video Challenge",
+
+        date: "Aug 3, 2025",
+
+        time: "24 hrs",
+
+        location: "Online",
+
+        description: "Showcase your skills by explaining any Microsoft technology in under 60 seconds.",
+
+        link: "https://www.linkedin.com/posts/mlsa-miet_msftstudentambassadors-microsoft-mlsa-activity-7358129436451352576-rZRp?utm_source=social_share_send&utm_medium=android_app&rcm=ACoAAEPnbUgBL7nBYpzb91o3DYvQ_Hqd0favIjE&utm_campaign=copy_link",
+
+    },
+      {
+
+        id: "dsa",
+
+        title: "DSA Level Up Session",
+
+        date: "June 21, 2025",
+
+        time: "07:00 PM - 9:00 PM",
+
+        location: "Online",
+
+        description: "Learn how to start your DSA journey in a way that feels approachable and achievable.",
+
+        link: "#",
+
+    },
+   {
+
+        id: "devgathering",
+
+        title: "Dev Gathering 2k25",
+
+        date: "May 16, 2025",
+
+        time: "2 days",
+
+        location: "MIET Schroff Block",
+
+        description: "An overnight hackathon with 100+ participants and 30+ projects.",
+
+        link: "https://www.devgathering2k25.xyz/",
+
+    },   {
+
+        id: "Samaarambh",
+
+        title: "Samaarambh 2.0",
+
+        date: "December 28, 2024",
+
+        time: "11:00 AM - 2:00 PM",
+
+        location: "Microsoft Office , Gurugram",
+
+        description: "Gave students an inspiring industrial exposure at Microsoft Gurugram through impactful sessions , activities and challenges. ",
+
+        link: "#",
+
+    }
 ];
 
 // .......... EVENT CARD COMPONENT ..........
 const EventCard = ({ event, isUpcoming = false }: { event: Event; isUpcoming?: boolean; }) => {
+   
+
     const CalendarIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>;
     const ClockIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>;
     const MapPinIcon = () => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>;
@@ -86,12 +140,19 @@ const EventCard = ({ event, isUpcoming = false }: { event: Event; isUpcoming?: b
                 <div className="my-4 border-t border-slate-700 pt-4 flex-grow">
                     <p className="text-sm text-slate-300">{event.description}</p>
                 </div>
+                {/* 👇 THIS IS THE UPDATED LOGIC FOR THE FOOTER BUTTONS 👇 */}
                 <div className="mt-auto">
                     {isUpcoming ? (
-                        // 👈 2. USE THE SIGN-IN BUTTON FOR UPCOMING EVENTS
-                        <SignInButton />
+                        <>
+                            {event.registrationType === 'signin' ? (
+                                <SignInButton />
+                            ) : (
+                                <Link href={event.link} className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
+                                    Register Now <ExternalLinkIcon />
+                                </Link>
+                            )}
+                        </>
                     ) : (
-                        // 👈 3. UPDATE THE STYLING FOR PAST EVENT BUTTONS
                         <Link href={event.link} className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-slate-900">
                              View Details <ExternalLinkIcon />
                         </Link>
@@ -104,6 +165,7 @@ const EventCard = ({ event, isUpcoming = false }: { event: Event; isUpcoming?: b
 
 // .......... MAIN EVENTS PAGE COMPONENT ..........
 const EventsPage: NextPage = () => {
+    // ... The rest of your EventsPage component remains exactly the same
     useEffect(() => {
         document.title = 'Events | MLSA MIET Chapter';
     }, []);
@@ -158,7 +220,7 @@ const EventsPage: NextPage = () => {
                             {activeTab === 'upcoming' && (
                                 <>
                                     {upcoming.length > 0 ? (
-                                        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                                        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
                                             {upcoming.map((e) => (
                                                 <EventCard key={e.id} event={e} isUpcoming />
                                             ))}

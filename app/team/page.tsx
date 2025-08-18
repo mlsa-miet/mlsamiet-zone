@@ -31,7 +31,6 @@ const TeamCard = ({ name, role, imageUrl, linkedinUrl }: { name: string, role: s
     return (
         <div 
             className="group w-full max-w-xs h-96 cursor-pointer" 
-            // Add the onClick handler here
             onClick={handleCardClick}
         >
             <div className="relative w-full h-full">
@@ -78,49 +77,45 @@ const TeamSection = ({ title, members }: { title: string, members: { name: strin
             {title}
             <span className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-24 justify-items-center">
+        <div className={`gap-x-8 gap-y-24 ${members.length === 1 ? 'flex justify-center' : 'grid grid-cols-1 md:grid-cols-2 justify-items-center'}`}>
             {members.map((member, index) => (
-                <TeamCard key={index} {...member} />
-            ))}
-        </div>
+        <TeamCard key={index} {...member} />
+         ))}
+</div>
     </div>
 );
 const teamData = {
-    'Leads': [
-        { name: 'Alex Johnson', role: 'MLSA Lead', imageUrl: "/team/lead2.jpg" , linkedinUrl: 'https://www.linkedin.com/alexjohnson'},
-        { name: 'Sarah Lee', role: 'MLSA Co-Lead', imageUrl: '/team/leader.png' , linkedinUrl:'https://www.linkedin.com/alexjohnson'},
+    'Presidential Candidates': [
+        { name: 'Pranav Bansal', role: 'Presidential Candidate', imageUrl: "/team/Pranav.jpg" , linkedinUrl: 'https://www.linkedin.com/in/pranav-bansal-0b91412aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
+        { name: 'Avni Gupta', role: 'Presidential Candidate', imageUrl: '/team/Avni.jpg' , linkedinUrl:'https://www.linkedin.com/in/avni-gupta-186366281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
     ],
-    'Head of Operations': [
-        { name: 'Mike Chen', role: 'Head of Operations', imageUrl: '/team/head.png', linkedinUrl: 'https://www.linkedin.com/alexjohnson'},
-        { name: 'Priya Patel', role: 'Operations Coordinator', imageUrl: '/team/head2.jpg', linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
+    'Presidential Candidates.': [
+        { name: 'Kushagra Sharma', role: 'Presidential Candidate', imageUrl: '/team/Kushagra.jpg', linkedinUrl: 'https://www.linkedin.com/in/kushagra-sharma-6b2347245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
+        { name: 'Tushar Tyagi', role: 'Presidential Candidate', imageUrl: '/team/Tushar.jpg', linkedinUrl: 'https://www.linkedin.com/in/tushar-tyagi-a3781a290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
     ],
     'Tech': [
-        { name: 'David Kim', role: 'Tech Lead', imageUrl: '/team/tech.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson'},
-        { name: 'Laura Martinez', role: 'Tech Co-Lead', imageUrl: '/team/tech2.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson'},
+        { name: 'Aayushi', role: 'Tech Head', imageUrl: '/team/aayushi.jpg',linkedinUrl: 'https://www.linkedin.com/in/aayushi-nagar-688642279/'},
+        { name: 'Ankit Kumar', role: 'Tech Head', imageUrl: '/team/ankit.jpg',linkedinUrl: 'https://www.linkedin.com/in/i-ankit01/'},
+    ],
+    'Graphics': [
+        { name: 'Bhavya Gupta', role: 'Graphics Head', imageUrl: '/team/Bhavya.jpg',linkedinUrl: 'https://www.linkedin.com/in/bhavya-gupta-832366257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
+    ],
+    'Content': [
+        { name: 'Geetanshi Goel', role: 'Content Head', imageUrl: '/team/Geetanshi.jpg',linkedinUrl: 'https://www.linkedin.com/in/geetanshi-goel-49ba5832b/' },
     ],
     'Visuals': [
         { name: 'Kevin Brown', role: 'Visuals Lead', imageUrl: '/team/visuals.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
         { name: 'Jessica Rodriguez', role: 'Visuals Co-Lead', imageUrl: '/team/visuals2.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
     ],
-    'Content': [
-        { name: 'Tom Wilson', role: 'Content Lead', imageUrl: '/team/content.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
-        { name: 'Maria Garcia', role: 'Content Co-Lead', imageUrl: '/team/content2.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
+    'Social': [
+        { name: 'Yash Goyal', role: 'Socials Head', imageUrl: '/team/Yash Goyal.jpg' ,linkedinUrl: 'https://www.linkedin.com/in/yash-goyal-b3bb8129a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
     ],
     'Outreach': [
-        { name: 'Robert Taylor', role: 'Outreach Lead', imageUrl: '/team/outreach.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
-        { name: 'Nancy Clark', role: 'Outreach Co-Lead', imageUrl: '/team/outreach2.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
+        { name: 'Ansh Goyal', role: 'Internal Outreach Head', imageUrl: '/team/Ansh Goyal.jpg',linkedinUrl: 'http://www.linkedin.com/in/anshgoyal15032007' },
+        { name: 'Praffullit Bhattacharya', role: 'External Outreach Head', imageUrl: '/team/Prafullit.jpg',linkedinUrl: 'https://www.linkedin.com/in/prafullit-bhattacharya-9443b4306/' },
     ],
-    'Social': [
-        { name: 'Daniel Hernandez', role: 'Social Media Lead', imageUrl: '/team/socials.jpg' ,linkedinUrl: 'https://www.linkedin.com/alexjohnson'},
-        { name: 'Karen Lewis', role: 'Social Media Co-Lead', imageUrl: '/team/socials2.jpg' ,linkedinUrl: 'https://www.linkedin.com/alexjohnson'},
-    ],
-    'Graphics': [
-        { name: 'Paul Walker', role: 'Graphics Lead', imageUrl: '/team/graphics.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
-        { name: 'Linda Hall', role: 'Graphics Co-Lead', imageUrl: '/team/graphics2.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
-    ],
-    'Workflow Management': [
-        { name: 'Mark Allen', role: 'Workflow Management Lead', imageUrl: '/team/data.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
-        { name: 'Betty Young', role: 'Workflow Management Co-Lead', imageUrl: '/team/data2.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
+      'Workflow Management': [
+        { name: 'Daksh Goswami', role: 'Workflow Manager', imageUrl: '/team/daksh.jpg',linkedinUrl: 'https://www.linkedin.com/in/daksh-goswami-9607712ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
     ],
 };
 
