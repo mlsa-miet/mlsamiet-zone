@@ -94,14 +94,14 @@ const teamData = {
         { name: 'Tushar Tyagi', role: 'Presidential Candidate', imageUrl: '/team/Tushar.jpg', linkedinUrl: 'https://www.linkedin.com/in/tushar-tyagi-a3781a290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
     ],
     'Tech': [
-        { name: 'Aayushi', role: 'Tech Head', imageUrl: '/team/aayushi.jpg',linkedinUrl: 'https://www.linkedin.com/in/aayushi-nagar-688642279/'},
-        { name: 'Ankit Kumar', role: 'Tech Head', imageUrl: '/team/ankit.jpg',linkedinUrl: 'https://www.linkedin.com/in/i-ankit01/'},
+        { name: 'Aayushi', role: 'Tech Head', imageUrl: '/team/Aayushi.jpg',linkedinUrl: 'https://www.linkedin.com/in/aayushi-nagar-688642279/'},
+        { name: 'Ankit Kumar', role: 'Tech Head', imageUrl: '/team/Ankit.jpg',linkedinUrl: 'https://www.linkedin.com/in/i-ankit01/'},
     ],
     'Graphics': [
         { name: 'Bhavya Gupta', role: 'Graphics Head', imageUrl: '/team/Bhavya.jpg',linkedinUrl: 'https://www.linkedin.com/in/bhavya-gupta-832366257?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
     ],
     'Content': [
-        { name: 'Geetanshi Goel', role: 'Content Head', imageUrl: '/team/Geetanshi.jpg',linkedinUrl: 'https://www.linkedin.com/in/geetanshi-goel-49ba5832b/' },
+        { name: 'Geetanshi Goel', role: 'Content Head', imageUrl: '/team/Geetanshi.JPG',linkedinUrl: 'https://www.linkedin.com/in/geetanshi-goel-49ba5832b/' },
     ],
     'Visuals': [
         { name: 'Kevin Brown', role: 'Visuals Lead', imageUrl: '/team/visuals.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
@@ -115,7 +115,7 @@ const teamData = {
         { name: 'Praffullit Bhattacharya', role: 'External Outreach Head', imageUrl: '/team/Prafullit.jpg',linkedinUrl: 'https://www.linkedin.com/in/prafullit-bhattacharya-9443b4306/' },
     ],
       'Workflow Management': [
-        { name: 'Daksh Goswami', role: 'Workflow Manager', imageUrl: '/team/daksh.jpg',linkedinUrl: 'https://www.linkedin.com/in/daksh-goswami-9607712ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
+        { name: 'Daksh Goswami', role: 'Workflow Manager', imageUrl: '/team/Daksh.jpg',linkedinUrl: 'https://www.linkedin.com/in/daksh-goswami-9607712ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
     ],
 };
 
