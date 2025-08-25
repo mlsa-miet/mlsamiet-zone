@@ -104,8 +104,7 @@ const teamData = {
         { name: 'Geetanshi Goel', role: 'Content Head', imageUrl: '/team/Geetanshi.JPG',linkedinUrl: 'https://www.linkedin.com/in/geetanshi-goel-49ba5832b/' },
     ],
     'Visuals': [
-        { name: 'Kevin Brown', role: 'Visuals Lead', imageUrl: '/team/visuals.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
-        { name: 'Jessica Rodriguez', role: 'Visuals Co-Lead', imageUrl: '/team/visuals2.jpg',linkedinUrl: 'https://www.linkedin.com/alexjohnson' },
+        { name: 'Yojit Tyagi', role: 'Visuals Lead', imageUrl: '/team/visuals2.jpg',linkedinUrl: 'https://www.linkedin.com/in/yojit-tyagi-6a9429316' },
     ],
     'Social': [
         { name: 'Yash Goyal', role: 'Socials Head', imageUrl: '/team/Yash Goyal.jpg' ,linkedinUrl: 'https://www.linkedin.com/in/yash-goyal-b3bb8129a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
