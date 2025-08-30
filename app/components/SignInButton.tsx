@@ -76,7 +76,7 @@ export default function SignInButton({ isHero = false }: { isHero?: boolean }) {
       onClick={() => signIn("google", { callbackUrl: "/join" })}
       className={buttonClasses}
     >
-      {isHero ? 'Join The Community' : 'JOIN US'}
+      {isHero ? 'Register to Volunteer' : 'Volunteer Now'}
     </button>
   );
 }
