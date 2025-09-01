@@ -65,7 +65,7 @@ const RegistrationCountdown = () => {
     const [hasEnded, setHasEnded] = useState(false);
 
     useEffect(() => {
-        const startDate = new Date('2025-09-3T00:00:00');
+        const startDate = new Date('2025-09-03T00:00:00');
         const endDate = new Date('2025-09-23T23:59:59');
 
         const interval = setInterval(() => {
