@@ -85,7 +85,7 @@ const ConnectPage: NextPage = () => {
         { name: 'Commudle', href: 'https://www.commudle.com/communities/microsoft-learn-student-ambassadors-meerut-institute-of-engineering-and-technology', icon: <CommudleIcon /> },
         { name: 'LinkedIn', href: 'https://www.linkedin.com/company/mlsa-miet/', icon: <LinkedInIcon /> },
         { name: 'Instagram', href: 'https://www.instagram.com/mlsamiet/', icon: <InstagramIcon /> },
-        { name: 'WhatsApp Group', href: 'https://chat.whatsapp.com/DXjoWMoEPsfBeCrVtBJNqc', icon: <WhatsAppIcon /> },
+        { name: 'WhatsApp Group', href: 'https://chat.whatsapp.com/JgCZxdUyAHxEOtXFNWYwBO?mode=ac_t', icon: <WhatsAppIcon /> },
         { name: 'YouTube', href: 'https://www.youtube.com/@mlsamiet', icon: <YouTubeIcon /> },
         { name: 'X (Twitter)', href: 'https://x.com/MlsaMiet', icon: <XIcon /> },
     ];
