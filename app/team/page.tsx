@@ -85,13 +85,12 @@ const TeamSection = ({ title, members }: { title: string, members: { name: strin
     </div>
 );
 const teamData = {
-    'Presidential Candidates': [
-        { name: 'Pranav Bansal', role: 'Presidential Candidate', imageUrl: "/team/Pranav.jpg" , linkedinUrl: 'https://www.linkedin.com/in/pranav-bansal-0b91412aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
-        { name: 'Avni Gupta', role: 'Presidential Candidate', imageUrl: '/team/Avni.jpg' , linkedinUrl:'https://www.linkedin.com/in/avni-gupta-186366281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
+    'Leads': [
+        { name: 'Pranav Bansal', role: 'Lead', imageUrl: "/team/Pranav.jpg" , linkedinUrl: 'https://www.linkedin.com/in/pranav-bansal-0b91412aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
+        { name: 'Avni Gupta', role: 'Lead', imageUrl: '/team/Avni.jpg' , linkedinUrl:'https://www.linkedin.com/in/avni-gupta-186366281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
     ],
     'Presidential Candidates.': [
-        { name: 'Kushagra Sharma', role: 'Presidential Candidate', imageUrl: '/team/Kushagra.jpg', linkedinUrl: 'https://www.linkedin.com/in/kushagra-sharma-6b2347245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
-        { name: 'Tushar Tyagi', role: 'Presidential Candidate', imageUrl: '/team/Tushar.jpg', linkedinUrl: 'https://www.linkedin.com/in/tushar-tyagi-a3781a290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
+        { name: 'Kushagra Sharma', role: 'Head of Operations', imageUrl: '/team/Kushagra.jpg', linkedinUrl: 'https://www.linkedin.com/in/kushagra-sharma-6b2347245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
     ],
     'Tech': [
         { name: 'Aayushi', role: 'Tech Head', imageUrl: '/team/Aayushi.jpg',linkedinUrl: 'https://www.linkedin.com/in/aayushi-nagar-688642279/'},
