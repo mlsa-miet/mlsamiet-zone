@@ -89,7 +89,7 @@ const teamData = {
         { name: 'Pranav Bansal', role: 'Lead', imageUrl: "/team/Pranav.jpg" , linkedinUrl: 'https://www.linkedin.com/in/pranav-bansal-0b91412aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
         { name: 'Avni Gupta', role: 'Lead', imageUrl: '/team/Avni.jpg' , linkedinUrl:'https://www.linkedin.com/in/avni-gupta-186366281?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
     ],
-    'Presidential Candidates.': [
+    'Head of Operations': [
         { name: 'Kushagra Sharma', role: 'Head of Operations', imageUrl: '/team/Kushagra.jpg', linkedinUrl: 'https://www.linkedin.com/in/kushagra-sharma-6b2347245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
     ],
     'Tech': [
