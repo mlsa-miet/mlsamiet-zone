@@ -93,7 +93,7 @@ const teamData = {
         { name: 'Kushagra Sharma', role: 'Head of Operations', imageUrl: '/team/Kushagra.jpg', linkedinUrl: 'https://www.linkedin.com/in/kushagra-sharma-6b2347245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'},
     ],
     'Tech': [
-        { name: 'Aayushi', role: 'Tech Head', imageUrl: '/team/Aayushi.jpg',linkedinUrl: 'https://www.linkedin.com/in/aayushi-nagar-688642279/'},
+        { name: 'Aayushi', role: 'Tech Head', imageUrl: '/team/aayushi1.jpg',linkedinUrl: 'https://www.linkedin.com/in/aayushi-nagar-688642279/'},
         { name: 'Ankit Kumar', role: 'Tech Head', imageUrl: '/team/Ankit.jpg',linkedinUrl: 'https://www.linkedin.com/in/i-ankit01/'},
     ],
     'Graphics': [
