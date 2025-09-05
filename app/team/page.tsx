@@ -114,6 +114,7 @@ const teamData = {
     ],
       'Workflow Management': [
         { name: 'Daksh Goswami', role: 'Workflow Manager', imageUrl: '/team/Daksh.jpg',linkedinUrl: 'https://www.linkedin.com/in/daksh-goswami-9607712ba?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
+        { name: 'Tushar Tyagi', role: 'Workflow Manager', imageUrl: '/team/Tushar.jpg',linkedinUrl: 'https://www.linkedin.com/in/tushar-tyagi-a3781a290?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },    
     ],
 };
 
