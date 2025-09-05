@@ -66,7 +66,7 @@ const RegistrationCountdown = () => {
 
     useEffect(() => {
         const startDate = new Date('2025-09-03T00:00:00');
-        const endDate = new Date('2025-09-23T23:59:59');
+        const endDate = new Date('2025-09-21T23:59:59');
 
         const interval = setInterval(() => {
             const now = new Date();
@@ -147,7 +147,7 @@ const RegistrationCountdown = () => {
 const HiringTimeline = () => {
     const timelineEvents = [
         { date: 'Sep 03, 2025', title: 'Applications Open', description: 'The hiring portal goes live. Submit your applications to join the team.' },
-        { date: 'Sep 23, 2025', title: 'Applications Close', description: 'Last day to submit your application. Don\'t miss out!' },
+        { date: 'Sep 21, 2025', title: 'Applications Close', description: 'Last day to submit your application. Don\'t miss out!' },
         { date: 'Sep 25-30, 2025', title: 'Interview Rounds', description: 'Shortlisted candidates will be contacted for interviews.' },
         { date: 'Oct 05, 2025', title: 'Results Announced', description: 'Welcome to the new members of the MLSA MIET Chapter!' },
     ];

@@ -27,23 +27,13 @@ const upcoming: Event[] = [
   {
     id: "registration",
     title: "Volunteer Registrations Open",
-    date: "Aug 30, 2025",
-    time: "5 days",
+    date: "September 3, 2025",
+    time: "19 days",
     location: "Online",
     description: "Register now to begin your journey and join the MLSA MIET team as a volunteer.",
     link: "/join",
     registrationType: 'signin', 
   },
-  {
-    id: "Avsar",
-    title: "Avsar 2.0",
-    date: "Aug 28, 2025",
-    time: "1 day",
-    location: "Auditorium 4",
-    description: "Join us with Mr. Rohit Yadav as we dive into 'How to get into Microsoft' and unlock pathways to your dream career.",
-    link: "https://www.linkedin.com/company/mlsa-miet/", 
-    registrationType: 'link', 
-  }
 ];
 
 const past: Event[] = [
@@ -97,7 +87,8 @@ const past: Event[] = [
 
         link: "https://www.devgathering2k25.xyz/",
 
-    },   {
+    }, 
+       {
 
         id: "Samaarambh",
 
@@ -113,7 +104,17 @@ const past: Event[] = [
 
         link: "#",
 
-    }
+    },
+     {
+    id: "Avsar",
+    title: "Avsar 2.0",
+    date: "September 2, 2025",
+    time: "1 day",
+    location: "Auditorium 4",
+    description: "Join us with Mr. Rohit Yadav as we dive into 'How to get into Microsoft' and unlock pathways to your dream career.",
+    link: "https://www.linkedin.com/company/mlsa-miet/", 
+    registrationType: 'link', 
+  }
 ];
 
 // .......... EVENT CARD COMPONENT ..........
